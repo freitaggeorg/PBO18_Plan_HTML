@@ -1,54 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        * {
-            border: 1px solid rgba(0, 0, 0, .3);
-            padding: 0px;
-            margin: 0px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 <body>
-    <div style="width:800px; margin:auto" >
-    <ul style="list-style-type: none; width: 100%">
-        <li style="margin-bottom: 30px">
-            <div name="proceedings1">
-                <div name="header" style="background-color: crimson; width:100%; color:white"; >
-                    <div name="titel1" style="display:inline; margin-right:30px;">
-                        <span style="text-transform:uppsercase;">Titel:</span>
-                        <h1>Titel</h1>
-                    </div>
-                    <div name="time1">01.01.2001</div>
-                    <div name="attendee1">Vorname1 Nachname1, Vorname2, Nachname2</div>
-                </div>
-                <div name="text1" style=" padding:10px; color:red; background-color:white; width:100%; box-sizing: border-box">
-                   - Punkt 1<br>- Punkt 2<br>- Punkt 3<br>Fließtext mit Anmerkungen<br>- Punkt 4<br>- Punkt 5
-                </div>
-            </div>
-        </li>
-        <li>
-            <div name="proceedings2">
-                <div name="header">
-                    <div name="titel">Titel 2</div>
-                    <div name="time">02.01.2001</div>
-                    <div name="attendee">Vorname1 Nachname1, Vorname2, Nachname2, Vornam3 Nachname3, Vorname4, Nachname4</div>
-                </div>
-                <div name="text2">
-                <p>    - Punkt 1
-        - Punkt 2
-        - Punkt 3
-        Fließtext mit Anmerkungen
-        - Punkt 4
-        - Punkt 5</p>
-                </div>
-            </div>
-        </li>
-    </ul>
-    </div>
+  <header><h1>Todo-List</h1></header>
+  <ul id="todolist">
+    <li><input type="checkbox" name="check1" value="check1">Eintrag 1</li>
+    <li><input type="checkbox" name="check2" value="check2">Eintrag 2</li>
+    <li><input type="checkbox" name="check3" value="check3">Eintrag 3</li>
+    <li><input type="checkbox" name="check4" value="check4">Eintrag 4</li>
+    <li><input type="checkbox" name="check5" value="check5">Eintrag 5</li>
+  </ul>
+  <input type="text" id="textinput" value="sample Task">
+  <script>
+    var input = document.getElementById("textinput");
+    
+    
+    input.addEventListener("keyup", function(event){
+      event.preventDefault();
+      if(event.keyCode === 13) {
+        var list = document.getElementById("todolist");
+        var li = document.createElement("li");
+        var input = document.createElement("input");
+        var node = document.createTextNode("input.valueh");
+        li.appendChild(document.createElement("input"));
+        li.appendChild (node);
+        list.appendChild(li);
+      }
+    });
+  </script>
 </body>
 </html>
