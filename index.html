@@ -25,9 +25,9 @@
       if(event.keyCode === 13) {
         var list = document.getElementById("todolist");
         var li = document.createElement("li");
-        var input = document.createElement("input");
-        var node = document.createTextNode("input.valueh");
-        li.appendChild(document.createElement("input"));
+        var textinput = document.createElement("input");
+        var node = document.createTextNode(input.value);  
+        li.appendChild(textinput);
         li.appendChild (node);
         list.appendChild(li);
       }
