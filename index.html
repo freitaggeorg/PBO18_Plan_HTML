@@ -5,40 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Todo-List 1212</h1></header>
+  <header><h1>Todo-List</h1></header>
   <ul id="todolist">
-    <li><input type="checkbox" id="check1" value="check1">Eintrag 1</li>
-    <li><input type="checkbox" id="check2" value="check2">Eintrag 2</li>
-    <li><input type="checkbox" id="check3" value="check3">Eintrag 3</li>
-    <li><input type="checkbox" id="check4" value="check4">Eintrag 4</li>
-    <li><input type="checkbox" id="check5" value="check5">Eintrag 5</li>
+    <!-- BeispielEintrag
+      <li><input type="checkbox" id="check1" value="check1" >Eintrag 1</li>
+    -->
   </ul>
   <input type="text" id="textinput" value="sample Task">
   <script>
     var input = document.getElementById("textinput");
-    var counter = 5;
+    var counter = 1;
     
     input.addEventListener("keyup", function(event){
-      counter++;
-
       event.preventDefault();
       if(event.keyCode === 13) {
+        counter++;
+        createListEntry(input.value, counter);
+        input.value = "";
+      }
+    });
+
+    let list = document.getElementById("todolist")
+    for (let i = 0; i < 5; i++){
+      createListEntry("Eintrag " + counter, counter);
+      counter++;
+    }
+
+    function createListEntry (label, counter){
         let list = document.getElementById("todolist");
         var li = document.createElement("li");
-        var textinput = document.createElement("input");
-        textinput.setAttribute("type","checkbox");
-        textinput.setAttribute("id","check"+counter);
-        textinput.setAttribute("value","check"+counter);
-        var node = document.createTextNode(input.value);  
-        li.appendChild(textinput);
-        li.appendChild (node);
+        var span = document.createElement("span");
+        span.setAttribute("class", "");
+        var cb = document.createElement("input");
+        cb.setAttribute("type","checkbox");
+        cb.setAttribute("id","check"+counter);
+        cb.setAttribute("value","check"+counter);
+
+        cb.onclick = checkHandler;
+
+        var node = document.createTextNode(label); 
+        li.appendChild(span);
+        span.appendChild(cb);
+        span.appendChild (node);
         list.appendChild(li);
 
 
-      }
-    });
+    };
+
+    function checkHandler (){
+      console.log(this);
+      document.getElementById(this.id).parentElement.classList.toggle("del");
+    };
+
   </script>
 </body>
 </html>
